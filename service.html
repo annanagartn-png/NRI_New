@@ -1283,14 +1283,36 @@ header {
 
 <body class="page-template-default page page-id-421 theme-windfall woocommerce-demo-store woocommerce-no-js elementor-default elementor-kit-1348 elementor-page elementor-page-421">
     <!-- Full Page -->
- <div id="navbar"></div>
+    <div id="navbar"></div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('./navbar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
 
-<script>
-fetch("navbar.html")
-    .then(res => res.text())
-    .then(data => document.getElementById("navbar").innerHTML = data);
-</script>
+                const hamburger = document.getElementById('hamburger');
+                const mobileMenu = document.getElementById('mobileMenu');
+
+                if (hamburger && mobileMenu) {
+
+                    hamburger.addEventListener('click', function () {
+                        hamburger.classList.toggle('active');
+                        mobileMenu.classList.toggle('active');
+                    });
+
+                    mobileMenu.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', function () {
+                            hamburger.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    });
+    </script>
     <!-- Hanor Main Wrap -->
     <div class="wndfal-main-wrap  header-style-one container-menubar">
         <!-- Hanor Main Wrap Inner -->
@@ -2359,20 +2381,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         };
     </script>
-    <script>
-document.addEventListener("DOMContentLoaded", function(){
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
 
-  hamburger.addEventListener('click', ()=>{
-    if(mobileMenu.style.display === 'flex'){
-      mobileMenu.style.display = 'none';
-    } else {
-      mobileMenu.style.display = 'flex';
-    }
-  });
-});
-</script>
     <script type='text/javascript' src='https://victorthemes.com/themes/windfall/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.23.4' id='elementor-frontend-js'></script>
     <script type='text/javascript' src='https://victorthemes.com/themes/windfall/wp-content/plugins/windfall-core/elementor/assets/js/windfall-elementor.js?ver=6.2.6' id='windfall-elementor-js'></script>
 </body>
