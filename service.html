@@ -413,6 +413,77 @@
             font-size: 1.5em;
             line-height: 1.6;
         }
+        /* ===== SERVICES MOBILE FIX ===== */
+
+        .nri-services-container {
+            width: 100%;
+            max-width: 1900px;
+            margin-left: 0;
+            box-sizing: border-box;
+        }
+
+        .nri-service-content {
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden !important;
+            }
+
+            .nri-services-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                padding: 25px 15px !important;
+                gap: 20px !important;
+                flex-direction: column !important;
+                box-sizing: border-box !important;
+            }
+
+            .nri-services-menu {
+                width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            .nri-service-content {
+                width: 100% !important;
+                min-width: 0 !important;
+                padding: 20px 15px !important;
+                box-sizing: border-box !important;
+            }
+
+            .nri-service-content img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        /* ===== SMALL MOBILE ===== */
+
+        @media (max-width: 480px) {
+
+            .nri-services-container {
+                padding: 20px 10px !important;
+            }
+
+            .nri-service-content {
+                padding: 18px 12px !important;
+            }
+
+            .nri-services-menu li {
+                font-size: 13px !important;
+                padding: 10px 12px !important;
+            }
+        }
     </style>
     <link rel='stylesheet' id='contact-form-7-css' href='https://victorthemes.com/themes/windfall/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.7' type='text/css' media='all' />
     <link rel='stylesheet' id='woocommerce-layout-css' href='https://victorthemes.com/themes/windfall/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=8.2.2' type='text/css' media='all' />
@@ -1353,9 +1424,9 @@ fetch("navbar.html")
   border-radius: 20px;
   box-shadow: 0 5px 25px rgba(0,0,0,0.1);
   max-width: 1900px;
-  width: 125%;
+  width: 100%;
   gap: 30px;
-  margin-left: -80px;
+  margin-left: 0;
 }
 
 /* ====== LEFT MENU ====== */
@@ -1424,7 +1495,7 @@ fetch("navbar.html")
 /* ====== RIGHT CONTENT ====== */
 .nri-service-content {
   flex: 2.7;
-  min-width: 450px;
+  min-width: 0;
   padding: 40px;
   background: #fefefe;
   border-radius: 20px;
